@@ -11,7 +11,7 @@ if [ ! -d "$PROJETO" ]; then
     exit 1
 fi
 
-ZENIRIS=./build/zeniris
+ZENIRIS="$HOME/.zeniris/zeniris"
 CC=aarch64-linux-android-clang
 STRIP=aarch64-linux-android-strip
 APKSIGNER=apksigner

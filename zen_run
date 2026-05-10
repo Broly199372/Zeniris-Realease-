@@ -6,7 +6,7 @@ if [ -z "$PROJETO" ]; then
     exit 1
 fi
 
-ZENIRIS=./build/zeniris
+ZENIRIS="$HOME/.zeniris/zeniris"
 
 ZNI=$(find "$PROJETO" -maxdepth 1 -name "*.zni" | head -1)
 ZN=$(find "$PROJETO" -maxdepth 1 -name "main.zn" | head -1)
@@ -16,7 +16,7 @@ if [ -n "$ZNI" ]; then
     $ZENIRIS rodar "$ZNI"
 elif [ -n "$ZN" ]; then
     echo "[ZenRun] compilando e rodando: $ZN"
-    ./zen_build.sh "$ZN" > /dev/null
+    zen_build "$ZN" > /dev/null
     ZNI="${ZN%.zn}.zni"
     $ZENIRIS rodar "$ZNI"
 else

@@ -11,7 +11,7 @@ if [ ! -f "$ARQUIVO" ]; then
     exit 1
 fi
 
-ZENIRIS=./build/zeniris
+ZENIRIS="$HOME/.zeniris/zeniris"
 DIR=$(dirname "$ARQUIVO")
 BASE=$(basename "${ARQUIVO%.zn}")
 ZNI="$DIR/$BASE.zni"

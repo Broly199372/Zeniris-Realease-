@@ -11,7 +11,7 @@ if [ ! -d "$PROJETO" ]; then
     exit 1
 fi
 
-ZENIRIS=./build/zeniris
+ZENIRIS="$HOME/.zeniris/zeniris"
 CC=clang
 STRIP=strip
 
@@ -117,8 +117,8 @@ zen_desktop_windows() {
         TMP="$BASE._tmp_.zr"
         ZNI_OUT="$ZNI_DIR/$(basename $BASE).zni"
         cp "$ZN" "$TMP"
-        ./build/zeniris build "$TMP" > /dev/null 2>&1
-        ./build/zeniris pack "$TMP" > /dev/null 2>&1
+        $HOME/.zeniris/zeniris build "$TMP" > /dev/null 2>&1
+        $HOME/.zeniris/zeniris pack "$TMP" > /dev/null 2>&1
         rm -f "$TMP"
         mv "$BASE._tmp_.zni" "$ZNI_OUT" 2>/dev/null
         echo "  OK: $(basename $ZN) -> $(basename $ZNI_OUT)"
