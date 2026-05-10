@@ -14,7 +14,7 @@ chmod +x "$INSTALL_DIR/zeniris"
 
 echo "Baixando build tools..."
 for SCRIPT in zen_build zen_new zen_run zen_apk zen_desktop; do
-    curl -fsSL "$BASE_URL/$SCRIPT.sh" -o "$INSTALL_DIR/$SCRIPT"
+    curl -fsSL "$BASE_URL/$SCRIPT" -o "$INSTALL_DIR/$SCRIPT"
     chmod +x "$INSTALL_DIR/$SCRIPT"
 done
 
