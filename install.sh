@@ -13,15 +13,15 @@ curl -fsSL "$BASE_URL/zeniris" -o "$INSTALL_DIR/zeniris"
 chmod +x "$INSTALL_DIR/zeniris"
 
 echo "Baixando build tools..."
-for SCRIPT in zen_build.sh zen_new.sh zen_run.sh zen_apk.sh zen_desktop.sh; do
-    curl -fsSL "$BASE_URL/$SCRIPT" -o "$INSTALL_DIR/${SCRIPT%.sh}"
+for SCRIPT in zen_build zen_new zen_run zen_apk zen_desktop; do
+    curl -fsSL "$BASE_URL/$SCRIPT.sh" -o "$INSTALL_DIR/$SCRIPT"
     chmod +x "$INSTALL_DIR/$SCRIPT"
 done
 
 echo ""
 echo "Configurando PATH..."
 SHELL_RC="$HOME/.bashrc"
-if ! grep -q "zeniris" "$SHELL_RC" 2>/dev/null; then
+if ! grep -q "\.zeniris" "$SHELL_RC" 2>/dev/null; then
     echo "export PATH=\"\$HOME/.zeniris:\$PATH\"" >> "$SHELL_RC"
 fi
 export PATH="$HOME/.zeniris:$PATH"
