@@ -1,0 +1,25 @@
+#!/bin/bash
+
+PROJETO=$1
+if [ -z "$PROJETO" ]; then
+    echo "Uso: ./zen_run.sh <pasta_do_projeto>"
+    exit 1
+fi
+
+ZENIRIS=./build/zeniris
+
+ZNI=$(find "$PROJETO" -maxdepth 1 -name "*.zni" | head -1)
+ZN=$(find "$PROJETO" -maxdepth 1 -name "main.zn" | head -1)
+
+if [ -n "$ZNI" ]; then
+    echo "[ZenRun] rodando: $ZNI"
+    $ZENIRIS rodar "$ZNI"
+elif [ -n "$ZN" ]; then
+    echo "[ZenRun] compilando e rodando: $ZN"
+    ./zen_build.sh "$ZN" > /dev/null
+    ZNI="${ZN%.zn}.zni"
+    $ZENIRIS rodar "$ZNI"
+else
+    echo "[ZenRun] nenhum .zni ou main.zn encontrado em: $PROJETO"
+    exit 1
+fi
