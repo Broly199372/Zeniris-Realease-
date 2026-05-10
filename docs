@@ -1,0 +1,403 @@
+# 🇧🇷 Zeniris — Tutorial
+
+## Instalação
+curl -fsSL https://raw.githubusercontent.com/Broly199372/Zeniris-Realease-/main/install.sh | bash
+source ~/.bashrc
+
+## Criando um projeto
+zen_new meu_jogo
+
+Estrutura criada:
+meu_jogo/
+  main.zn
+  propriet.zn
+  assets/
+  mods/
+
+## propriet.zn
+nomemod = Meu Jogo
+versao = 1.0.0
+descricao = Meu primeiro jogo
+autor = SeuNome
+
+## Estrutura básica
+Todo arquivo começa com Inicio e termina com Fim:
+Inicio
+
+Fim
+
+## Variáveis
+Inicio
+
+Vida = 100;
+Velocidade = 5,5;
+Ativo = true;
+
+100;     → inteiro
+5,5;     → decimal
+true;    → booleano verdadeiro
+false;   → booleano falso
+
+## Classes
+Inicio
+
+Classe Jogador
+
+Fim
+
+## Functions
+Classe Jogador
+
+Function Pular
+
+Jogador.Pulando = On
+
+Fim
+
+Fim
+
+## Estados
+Sempre On ou Off:
+Jogador.Vivo = On
+Jogador.Morto = Off
+
+## Dependências
+Function Correr
+Dep Jogador on1
+
+Jogador.Movendo = On
+
+Fim
+
+on1 significa que o primeiro estado do Dep precisa estar On.
+on2 significa que os dois primeiros precisam estar On. E assim por diante.
+
+## Eventos
+Evento JogadorAtingido
+
+Jogador.Ferido = On
+
+Fim
+
+## Exemplo completo
+Inicio
+
+Vida = 100;
+Velocidade = 5,5;
+
+Classe Jogador
+
+Function Iniciar
+
+Jogador.Vivo = On
+
+Fim
+
+Function Correr
+Dep Jogador on1
+
+Jogador.Movendo = On
+
+Fim
+
+Function Morrer
+Dep Jogador on2
+
+Jogador.Vivo = Off
+Jogador.Morto = On
+
+Fim
+
+Evento JogadorAtingido
+
+Jogador.Ferido = On
+
+Fim
+
+Fim
+
+## Compilar
+zen_build meu_jogo/main.zn
+
+## Rodar
+zen_run meu_jogo
+
+## Diagnosticar erros
+zeniris diag meu_jogo/main.zn
+
+## Exportar
+zen_apk meu_jogo
+zen_desktop meu_jogo
+zen_desktop meu_jogo --windows
+
+
+---
+
+
+# 🇺🇸 Zeniris — Tutorial
+
+## Installation
+curl -fsSL https://raw.githubusercontent.com/Broly199372/Zeniris-Realease-/main/install.sh | bash
+source ~/.bashrc
+
+## Creating a project
+zen_new my_game
+
+Structure created:
+my_game/
+  main.zn
+  propriet.zn
+  assets/
+  mods/
+
+## propriet.zn
+modname = My Game
+version = 1.0.0
+description = My first game
+author = YourName
+
+## Basic structure
+Every file starts with Start and ends with End:
+Start
+
+End
+
+## Variables
+Start
+
+Health = 100;
+Speed = 5,5;
+Active = true;
+
+100;     → integer
+5,5;     → decimal
+true;    → boolean true
+false;   → boolean false
+
+## Classes
+Start
+
+Class Player
+
+End
+
+## Functions
+Class Player
+
+Function Jump
+
+Player.Jumping = On
+
+End
+
+End
+
+## States
+Always On or Off:
+Player.Alive = On
+Player.Dead = Off
+
+## Dependencies
+Function Run
+Dep Player on1
+
+Player.Moving = On
+
+End
+
+on1 means the first dep state must be On.
+on2 means the first two must be On. And so on.
+
+## Events
+Event PlayerHit
+
+Player.Hurt = On
+
+End
+
+## Full example
+Start
+
+Health = 100;
+Speed = 5,5;
+
+Class Player
+
+Function Init
+
+Player.Alive = On
+
+End
+
+Function Run
+Dep Player on1
+
+Player.Moving = On
+
+End
+
+Function Die
+Dep Player on2
+
+Player.Alive = Off
+Player.Dead = On
+
+End
+
+Event PlayerHit
+
+Player.Hurt = On
+
+End
+
+End
+
+## Compile
+zen_build my_game/main.zn
+
+## Run
+zen_run my_game
+
+## Diagnose errors
+zeniris diag my_game/main.zn
+
+## Export
+zen_apk my_game
+zen_desktop my_game
+zen_desktop my_game --windows
+
+
+---
+
+
+# 🇪🇸 Zeniris — Tutorial
+
+## Instalación
+curl -fsSL https://raw.githubusercontent.com/Broly199372/Zeniris-Realease-/main/install.sh | bash
+source ~/.bashrc
+
+## Creando un proyecto
+zen_new mi_juego
+
+Estructura creada:
+mi_juego/
+  main.zn
+  propriet.zn
+  assets/
+  mods/
+
+## propriet.zn
+nombremod = Mi Juego
+version = 1.0.0
+descripcion = Mi primer juego
+autor = TuNombre
+
+## Estructura básica
+Todo archivo comienza con Inicio y termina con Fin:
+Inicio
+
+Fin
+
+## Variables
+Inicio
+
+Vida = 100;
+Velocidad = 5,5;
+Activo = true;
+
+100;     → entero
+5,5;     → decimal
+true;    → booleano verdadero
+false;   → booleano falso
+
+## Clases
+Inicio
+
+Clase Jugador
+
+Fin
+
+## Funciones
+Clase Jugador
+
+Funcion Saltar
+
+Jugador.Saltando = On
+
+Fin
+
+Fin
+
+## Estados
+Siempre On o Off:
+Jugador.Vivo = On
+Jugador.Muerto = Off
+
+## Dependencias
+Funcion Correr
+Dep Jugador on1
+
+Jugador.Moviendo = On
+
+Fin
+
+on1 significa que el primer estado del Dep debe estar On.
+on2 significa que los dos primeros deben estar On. Y así sucesivamente.
+
+## Eventos
+Evento JugadorGolpeado
+
+Jugador.Herido = On
+
+Fin
+
+## Ejemplo completo
+Inicio
+
+Vida = 100;
+Velocidad = 5,5;
+
+Clase Jugador
+
+Funcion Iniciar
+
+Jugador.Vivo = On
+
+Fin
+
+Funcion Correr
+Dep Jugador on1
+
+Jugador.Moviendo = On
+
+Fin
+
+Funcion Morir
+Dep Jugador on2
+
+Jugador.Vivo = Off
+Jugador.Muerto = On
+
+Fin
+
+Evento JugadorGolpeado
+
+Jugador.Herido = On
+
+Fin
+
+Fin
+
+## Compilar
+zen_build mi_juego/main.zn
+
+## Ejecutar
+zen_run mi_juego
+
+## Diagnosticar errores
+zeniris diag mi_juego/main.zn
+
+## Exportar
+zen_apk mi_juego
+zen_desktop mi_juego
+zen_desktop mi_juego --windows
